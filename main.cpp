@@ -25,7 +25,7 @@ void readIntegersFile(string fileName, vector<int>& integers, int& target) {
 
 // Return a pair of integers that sum up to a target sum from an array of unique integers.
 vector<int> findPair(vector<int> integers, int target) {
-    vector<int> pair;
+    vector<int> pair(2);
     unordered_map<int, int> int_map; // Is unordered_map rather than ordered_map because ordered_map has O(log n) read and write times,
     // whereas unordered_map has O(1) read and write times, assuming it has a uniform hash function.
 
@@ -60,7 +60,8 @@ int main() {
 
     try {
         vector<int> results = findPair(integers, target);
-        cout << "Pair of integers is: " <<  results.at(0) << ", " << results.at(1);
+        cout << "For target: " << target << endl 
+             << "Pair of integers is: " <<  results.at(0) << ", " << results.at(1) << endl;
     } catch (exception& e) {
         cerr << e.what() << endl;
     }
